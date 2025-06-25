@@ -3,7 +3,7 @@ USE alx_book_store;
 CREATE TABLE Books (
     book_id PRIMARY KEY,
     title VARCHAR(130) NOT NULL,
-    author_id (Foreign Key referencing Authors Table) INT NOT NULL,
+    author_id (Foreign Key REFERENCES Authors Table) INT NOT NULL,
     publication_date DATE,
     price DOUBLE NOT NULL, 
 );
@@ -22,7 +22,7 @@ CREATE TABLE Customers (
 
 CREATE TABLE Orders (
     order_id INT PRIMARY KEY,
-    customer_id INT NOT NULL,
+    customer_id (Foreign Key REFERENCES Customers (customer_id))INT NOT NULL,
     order_date DATE NOT NULL,
 );
 
