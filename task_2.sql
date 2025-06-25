@@ -27,7 +27,7 @@ CREATE TABLE orders (
     order_date DATE NOT NULL,
 );
 
-CREATE TABLE order details (
+CREATE TABLE Order_Dtails (
     orderdetailid INT PRIMARY KEY,
     order_id INT NOT NULL,
     FOREIGN KEY (order_id) REFERENCES Orders(order_id)", "FOREIGN KEY (book_id) REFERENCES Books(book_id),
