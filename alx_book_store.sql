@@ -23,13 +23,16 @@ CREATE TABLE Customers (
 
 CREATE TABLE Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_id foreign key REFERENCES Customers(customer_id),
+    customer_id INT NOT NULL,
     order_date DATE NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 );
 
 CREATE TABLE Order_Details (
     orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
-    order_id foreign key REFERENCES Orders(order_id),
-    book_id foreign key REFERENCES Books(book_id),
+    order_id INT NOT NULL,
+    book_id INT NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    FOREIGN KEY (book_id) REFERENCES Books(book_id),
     quantity DOUBLE NOT NULL
 )
